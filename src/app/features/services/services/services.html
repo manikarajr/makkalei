@@ -1,0 +1,131 @@
+<div class="pt-16">
+      <!-- Hero Section -->
+      <section class="bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 py-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              Our Services
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300">
+              Comprehensive web development solutions tailored to your business needs. 
+              From concept to deployment, we've got you covered.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Grid -->
+      <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="space-y-20">
+            <div *ngFor="let service of services; let i = index" 
+                 class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                 [class.lg:flex-row-reverse]="i % 2 === 1">
+              <div [class.lg:order-2]="i % 2 === 1">
+                <div class="inline-block mb-4 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-semibold">
+                  {{ service.category }}
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                  {{ service.title }}
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+                  {{ service.description }}
+                </p>
+                <ul class="space-y-3 mb-8">
+                  <li *ngFor="let feature of service.features" 
+                      class="flex items-start space-x-3">
+                    <svg class="w-6 h-6 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="text-gray-700 dark:text-gray-300">{{ feature }}</span>
+                  </li>
+                </ul>
+                <a routerLink="/contact" 
+                   class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200">
+                  Get Started
+                  <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+              </div>
+              <div [class.lg:order-1]="i % 2 === 1" class="relative">
+                <div class="relative bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-12 flex items-center justify-center aspect-square">
+                  <svg class="w-full h-full text-white opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" [attr.d]="service.icon" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technologies -->
+      <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Technologies We Use
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              We leverage cutting-edge technologies to build robust and scalable solutions
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div *ngFor="let tech of technologies" 
+                 class="flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-900 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+              <div class="text-5xl mb-4">{{ tech.icon }}</div>
+              <h3 class="text-gray-900 dark:text-white font-semibold text-center">{{ tech.name }}</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process Section -->
+      <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Our Development Process
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              A proven methodology that ensures quality, efficiency, and client satisfaction
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div *ngFor="let step of process; let i = index" class="relative">
+              <div class="text-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span class="text-2xl font-bold text-white">{{ i + 1 }}</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">{{ step.title }}</h3>
+                <p class="text-gray-600 dark:text-gray-400">{{ step.description }}</p>
+              </div>
+              <div *ngIf="i < process.length - 1" 
+                   class="hidden lg:block absolute top-8 left-full w-full border-t-2 border-dashed border-gray-300 dark:border-gray-700 -translate-x-1/2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Ready to Build Something Great?
+          </h2>
+          <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Let's discuss how we can help bring your project to life with our expert services.
+          </p>
+          <a routerLink="/contact" 
+             class="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200">
+            Contact Us Today
+            <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>

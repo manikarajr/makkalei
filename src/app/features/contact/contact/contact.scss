@@ -1,0 +1,34 @@
+// Custom marker styles
+::ng-deep .custom-marker {
+  background: transparent;
+  border: none;
+}
+
+// Popup customization
+::ng-deep .leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .leaflet-popup-content {
+  margin: 0;
+  min-width: 240px;
+}
+
+::ng-deep .leaflet-popup-tip {
+  background: white;
+}
+
+// Animation for marker
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+::ng-deep .animate-bounce {
+  animation: bounce 2s infinite;
+}

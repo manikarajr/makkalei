@@ -5,7 +5,20 @@
   <title>Makkalei</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="description" content="Makkalei is a professional web development team specializing in building modern, scalable, and high-performance web applications.">
+  <meta name="keywords" content="web development, angular, react, vue, ui/ux design, ecommerce, website design">
+  <link rel="icon" type="image/x-icon" href="assets/logo.png">
+  
+  <!-- Prevent FOUC (Flash of Unstyled Content) for Dark Mode -->
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (theme === 'dark' || (!theme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
 </head>
 <body>
   <app-root></app-root>
